@@ -1,10 +1,14 @@
-import tkinter as tk
+import random
 
-okno = tk.Tk()
+igra = [['','','',''],['','','',''],['','','',''],['','','','']]
 
-crte = tk.Canvas(okno, width=200, height=100)
-crte.pack
+class Plosca:
+    def __init__(self, vsota=0):
+        self.vsota = random.choice('24')
 
-crte.create_line(0, 0, 200, 100)
-
-okno.mainloop()
+    def premik(self):
+        if klik == 'levo':
+            for i in range(0,3):
+                if [i][y+1] == '':
+                    igra [x][y+1] = y
+                    igra [x][y] = ''
