@@ -5,7 +5,7 @@ igra = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 def stisni_vrstico_levo(A):
 #vse elemente v vrsrici stisne v levo
     B = []
-    for i in range(len(A)):
+    for i in range(4):
         if A[i] != 0:
             B += [A[i]]
     if B == []:
@@ -21,7 +21,7 @@ def stisni_vrstico_levo(A):
 
 def stisni_levo(A):
 # kot argument vzame matriko A in vrne matriko, ki ima vse stisnjeno v levo
-    for i in range(0,4):
+    for i in range(4):
         A[i] = stisni_vrstico_levo(A[i])
 
 def stisni_vrstico_desno(A):
@@ -31,11 +31,11 @@ def stisni_vrstico_desno(A):
 
 def stisni_desno(A):
 # kot argument vzame matriko A in vrne matriko, ki ima vse stisnjeno v desno
-    for i in range(0,4):
+    for i in range(4):
         A[i] = stisni_vrstico_desno(A[i])
 
 def stisni_gor(A):
-    for j in range(0,4):
+    for j in range(4):
         vrstica = []
         for i in range(4):
             vrstica.append(A[i][j])
@@ -45,14 +45,25 @@ def stisni_gor(A):
     return (A)
 
 def stisni_dol(A):
-    for j in range(0,4):
+    for j in range(4):
         vrstica = []
         for i in range(4):
             vrstica.append(A[i][j])
         B = stisni_vrstico_desno(vrstica)
-        for i in range (4):
+        for i in range(4):
             A[i][j] = B[i]
     return (A)
+
+def vstavi_novo_stevilko(A):
+#po vsaki potezi funkcija nakljucno postavi stevilo 2 ali 4 v matriko
+    i = random.randint(0,3)
+    j = random.randint(0,3)
+    while A[i][j] != 0:
+        i = random.randint(0,3)
+        j = random.randint(0,3)
+    A[i][j] = int(random.choice('24'))
+    return(A)
+        
 
 A = [0,4,8,2,2,2,0,0,0,0]
 C = [[4,2,2,0],[0,0,0,4],[2,0,0,0],[2,0,0,0]]
