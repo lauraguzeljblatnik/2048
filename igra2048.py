@@ -1,7 +1,7 @@
 # projektna naloga
 
 import tkinter as tk
-import igra2048
+import model2048
 from tkinter import simpledialog
 import tkinter.messagebox
 from os import startfile
@@ -41,7 +41,7 @@ class Plosca:
     #funkcija postavi matriko za novo igro
     def nova_igra(self):
         A = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-        self.matrika = igra2048.vstavi_novo_stevilko(A)
+        self.matrika = model2048.vstavi_novo_stevilko(A)
         self.narisi()
         
             
@@ -146,25 +146,25 @@ class Plosca:
     def obdelaj_tipko(self, event):
         A = self.matrika
         if event.keysym == 'Right':
-            B = igra2048.stisni_desno(A)
+            B = model2048.stisni_desno(A)
         elif event.keysym == 'Left':
-            B = igra2048.stisni_levo(A)
+            B = model2048.stisni_levo(A)
         elif event.keysym == 'Up':
-            B = igra2048.stisni_gor(A)
+            B = model2048.stisni_gor(A)
         elif event.keysym == 'Down':
-            B = igra2048.stisni_dol(A)
+            B = model2048.stisni_dol(A)
         else:
             return None
         
-        self.matrika = igra2048.vstavi_novo_stevilko(B)
+        self.matrika = model2048.vstavi_novo_stevilko(B)
         self.narisi()
 
     #funkcija sporoči, da je igre konec
         if (
-            B == igra2048.stisni_levo(B) and
-            B == igra2048.stisni_desno(B) and
-            B == igra2048.stisni_gor(B) and
-            B == igra2048.stisni_dol(B) 
+            B == model2048.stisni_levo(B) and
+            B == model2048.stisni_desno(B) and
+            B == model2048.stisni_gor(B) and
+            B == model2048.stisni_dol(B) 
             ):
 
             tkinter.messagebox.showinfo("OBVESTILO",
