@@ -61,7 +61,7 @@ def stisni_dol(A):
     return B
 
 def vstavi_novo_stevilko(A):
-#po vsaki potezi funkcija nakljucno postavi stevilo 2 ali 4 v matriko
+#funkcija nakljucno postavi stevilo 2 ali 4 v matriko
     nicle = 0
     for j in range(4):
         for i in range(4):
@@ -69,20 +69,21 @@ def vstavi_novo_stevilko(A):
                 nicle += 1
     if nicle == 0:
         return A
-    i = random.randint(0,3)
-    j = random.randint(0,3)
+
     B = []
     for i in range(4):
         vrstica = []
         for j in range(4):
             vrstica.append(A[i][j])
         B.append(vrstica)
+
+    i = random.randint(0,3)
+    j = random.randint(0,3)
+
     while B[i][j] != 0:
         i = random.randint(0,3)
         j = random.randint(0,3)
     B[i][j] = int(random.choice('24'))
     return B
-        
 
-A = [0,4,8,2,2,2,0,0,0,0]
-C = [[4,2,2,0],[0,0,0,4],[2,0,0,0],[2,0,0,0]]
+  
