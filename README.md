@@ -7,5 +7,6 @@
 ## Navodila za igro
 
 Za premik ploščic s števili uporabi smerne tipke. Ko se dve enaki ploščici dotakneta, se združita v eno.
+
 Kako zelo se lahko približaš številu 2048?
 
